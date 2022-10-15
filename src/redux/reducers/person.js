@@ -7,6 +7,8 @@ const initialState = [{
     photo: 'https://picsum.photos/200'
 }]
 
+
+
 export default function (state = initialState, action) {
     switch (action.type) {
         case ADD:

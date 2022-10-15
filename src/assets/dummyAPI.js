@@ -10,5 +10,10 @@ export default {
             name: 'Brian Gosling',
             photo: 'https://picsum.photos/200'
         }
-    ])
+    ]),
+    person: {
+        id: 3,
+        name: 'abc',
+        photo: 'https://picsum.photos/200'
+    }
 }

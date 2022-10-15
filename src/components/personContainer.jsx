@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import dummyAPI from '../assets/dummyAPI';
-import { INIT } from '../redux/actions';
+import { getAllPerson, INIT, addPerson } from '../redux/actions';
 import Person from './person';
 
 class PersonContainer extends Component {
@@ -11,12 +11,10 @@ class PersonContainer extends Component {
     }
 
     loadData() {
-        dummyAPI.all().then(result => {
-            this.props.dispatch({
-                type: INIT,
-                payload: result
-            })
-        })
+        this.props.getAllPerson()
+        // dummyAPI.all().then(result => {
+
+        // })
     }
 
     render() {
@@ -37,6 +35,14 @@ class PersonContainer extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        getAllPerson: dispatch(getAllPerson()),
+        addPerson: addPerson
+    };
+};
+
+
 const mapStateToProps = state => {
 
     console.log(state)
@@ -44,4 +50,4 @@ const mapStateToProps = state => {
         data: state.person
     }
 }
-export default connect(mapStateToProps)(PersonContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(PersonContainer)
